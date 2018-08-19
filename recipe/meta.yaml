@@ -1,9 +1,8 @@
-{%set name = "Routes" %}
-{%set version = "2.4.1" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "26ee43340fca5a32769ffe0c58edcb396ccce6bc1dfa689ddf844d50877355fd" %}
-{%set build_num = "0" %}
+{% set name = "Routes" %}
+{% set version = "2.4.1" %}
+{% set compress_type = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "26ee43340fca5a32769ffe0c58edcb396ccce6bc1dfa689ddf844d50877355fd" %}
 
 package:
   name: {{ name|lower }}
@@ -11,11 +10,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
   {{ hash_type }}: {{ hash_val }}
 
 build:
-  number: {{ build_num }}
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
