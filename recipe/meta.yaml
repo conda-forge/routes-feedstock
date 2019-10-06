@@ -1,21 +1,18 @@
 {% set name = "Routes" %}
-{% set version = "2.4.1" %}
-{% set compress_type = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_val = "26ee43340fca5a32769ffe0c58edcb396ccce6bc1dfa689ddf844d50877355fd" %}
+{% set version = "1.13" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: cc03d1a357cdb7af82e3909ee8ff93cb2b2afb48aca23bfde0117d6f49f624a7
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
@@ -33,7 +30,7 @@ test:
 
 about:
   home: https://routes.readthedocs.io/
-  license_file: LICENSE.txt
+  license_file: LICENSE
   license: MIT
   license_family: MIT
   summary: Routing Recognition and Generation Tools
