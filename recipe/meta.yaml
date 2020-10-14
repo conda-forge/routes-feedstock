@@ -1,8 +1,7 @@
 {% set name = "Routes" %}
-{% set version = "2.4.1" %}
+{% set version = "2.5.1" %}
 {% set compress_type = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_val = "26ee43340fca5a32769ffe0c58edcb396ccce6bc1dfa689ddf844d50877355fd" %}
+{% set hash_val = "b6346459a15f0cbab01a45a90c3d25caf980d4733d628b4cc1952b865125d053" %}
 
 package:
   name: {{ name|lower }}
@@ -10,12 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  sha256: {{ hash_val }}
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
